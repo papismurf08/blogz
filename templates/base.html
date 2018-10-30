@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>{{ title }} - Michael's Blog</title>
+    </head>
+    <body>
+        <div>
+            Michael's Blog:
+            <a href="/">Home</a>
+            <a href="/blog">Blog Page</a>
+            <a href="/newpost">Add to the Blog</a>
+            <a href="/login">Login</a>
+            <a href="/logout">Logout</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
